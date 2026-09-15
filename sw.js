@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ide-sticker-prints_-v6';
+const CACHE_NAME = 'ide-sticker-prints_-v7';
 const urlsToCache = [
   './index.html',
   './manifest.json'
