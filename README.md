@@ -1,1 +1,1 @@
-# sticker-app-v6
+# sticker-app-v7
