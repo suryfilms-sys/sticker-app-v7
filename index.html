@@ -72,222 +72,60 @@
 
     /* --- Screensaver Styles --- */
     #screen-screensaver {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100dvh;
-      background: #000;
-      z-index: 1000;
-      overflow: hidden;
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh; background: #000; z-index: 1000; overflow: hidden;
     }
-    #screen-screensaver:not(.hidden) {
-      display: block;
-    }
+    #screen-screensaver:not(.hidden) { display: block; }
     #ssText {
-      position: absolute;
-      font-family: 'Sour Gummy', sans-serif;
-      font-size: 15vw; /* Fills screen width */
-      font-weight: 900;
-      color: #FF416C;
-      text-align: center;
-      line-height: 1.1;
-      text-shadow: 4px 4px 15px rgba(255, 255, 255, 0.2);
-      user-select: none;
-      white-space: nowrap;
+      position: absolute; font-family: 'Sour Gummy', sans-serif; font-size: 15vw; font-weight: 900; color: #FF416C;
+      text-align: center; line-height: 1.1; text-shadow: 4px 4px 15px rgba(255, 255, 255, 0.2); user-select: none; white-space: nowrap;
     }
-    /* -------------------------- */
 
     /* Numpad Styles */
-    .pin-display {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      margin-bottom: 25px;
-    }
-    .pin-dot {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 3px solid var(--text);
-      background: transparent;
-      transition: all 0.2s;
-    }
-    .pin-dot.filled {
-      background: var(--text);
-    }
-    .numpad {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    .num-btn {
-      padding: 20px 0;
-      font-size: 24px;
-      border-radius: 12px;
-    }
+    .pin-display { display: flex; gap: 15px; justify-content: center; margin-bottom: 25px; }
+    .pin-dot { width: 20px; height: 20px; border-radius: 50%; border: 3px solid var(--text); background: transparent; transition: all 0.2s; }
+    .pin-dot.filled { background: var(--text); }
+    .numpad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; max-width: 300px; margin: 0 auto; }
+    .num-btn { padding: 20px 0; font-size: 24px; border-radius: 12px; }
     
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      75% { transform: translateX(10px); }
-    }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
     .shake { animation: shake 0.3s ease-in-out; }
 
-    .viewfinder-wrapper {
-      flex: 1;
-      width: 100%;
-      min-height: 0; 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .viewfinder {
-      max-width: 100%;
-      max-height: 100%; 
-      border: 4px solid var(--text);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #000;
-      position: relative;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      transition: aspect-ratio 0.3s ease;
-    }
-    
+    .viewfinder-wrapper { flex: 1; width: 100%; min-height: 0; display: flex; justify-content: center; align-items: center; }
+    .viewfinder { max-width: 100%; max-height: 100%; border: 4px solid var(--text); border-radius: 8px; overflow: hidden; background: #000; position: relative; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); transition: aspect-ratio 0.3s ease; }
     video, img { width: 100%; height: 100%; object-fit: cover; display: block; }
     canvas { display: none; }
     
-    #countdownOverlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 140px;
-      font-weight: 900;
-      color: #fff;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.9);
-      z-index: 10;
-      pointer-events: none;
-    }
+    #countdownOverlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); display: flex; justify-content: center; align-items: center; font-size: 140px; font-weight: 900; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,0.9); z-index: 10; pointer-events: none; }
 
-    #thankYouModal {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      border: 4px solid var(--text);
-      text-align: center;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    @keyframes popIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
+    #thankYouModal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 100; }
+    .modal-content { background: #fff; padding: 40px; border-radius: 12px; border: 4px solid var(--text); text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.5); animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
     .hidden { display: none !important; }
 
-    .controls { 
-      flex-shrink: 0; 
-      display: flex; 
-      gap: 15px; 
-      margin-top: 15px; 
-      width: 100%; 
-    }
-    
-    button {
-      flex: 1; padding: 15px; font-family: inherit; font-weight: 800; font-size: 18px;
-      text-transform: uppercase; cursor: pointer; border: 4px solid var(--text);
-      background: #fff; color: var(--text); border-radius: 8px; transition: all 0.1s;
-      box-shadow: 0 6px 0px var(--text);
-    }
-    
+    .controls { flex-shrink: 0; display: flex; gap: 15px; margin-top: 15px; width: 100%; }
+    button { flex: 1; padding: 15px; font-family: inherit; font-weight: 800; font-size: 18px; text-transform: uppercase; cursor: pointer; border: 4px solid var(--text); background: #fff; color: var(--text); border-radius: 8px; transition: all 0.1s; box-shadow: 0 6px 0px var(--text); }
     button:active { transform: translateY(6px); box-shadow: 0 0px 0px var(--text); }
     button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: 0 6px 0px var(--text); }
-    
     button.primary { background: var(--text); color: #fff; border-color: var(--text); box-shadow: 0 6px 0px rgba(0,0,0,0.5); }
     button.primary:active:not(:disabled) { background: #333; box-shadow: 0 0px 0px rgba(0,0,0,0.5); }
 
-    /* Stepper button for copies selector */
-    .stepper-btn {
-      flex: none !important;
-      width: 45px;
-      height: 45px;
-      padding: 0 !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-    }
-    
-    /* Connect Button Specific Styling - Smaller Square Shape */
-    #connectBtn {
-      flex: none;
-      width: 140px;
-      height: 140px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      font-size: 16px;
-      line-height: 1.4;
-      border-radius: 20px;
-    }
-    #connectBtn span.icon {
-      font-size: 38px;
-      margin-bottom: 8px;
-    }
+    .stepper-btn { flex: none !important; width: 45px; height: 45px; padding: 0 !important; display: flex; justify-content: center; align-items: center; font-size: 24px; }
+    #connectBtn { flex: none; width: 140px; height: 140px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; font-size: 16px; line-height: 1.4; border-radius: 20px; }
+    #connectBtn span.icon { font-size: 38px; margin-bottom: 8px; }
 
-    .layout-btn {
-      display: flex; align-items: center; justify-content: center; gap: 20px;
-    }
+    .layout-btn { display: flex; align-items: center; justify-content: center; gap: 20px; }
     .layout-btn svg { flex-shrink: 0; width: 40px; height: 64px; }
     .layout-btn span { text-align: left; font-size: 20px; }
 
-    .edit-panel {
-      flex-shrink: 0;
-      width: 100%; background: #fff; padding: 15px; border-radius: 12px;
-      border: 4px solid var(--text); margin-top: 15px; box-sizing: border-box;
-      display: flex; flex-direction: column; gap: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
+    .edit-panel { flex-shrink: 0; width: 100%; background: #fff; padding: 15px; border-radius: 12px; border: 4px solid var(--text); margin-top: 15px; box-sizing: border-box; display: flex; flex-direction: column; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    input[type="text"] { width: 100%; padding: 15px; border: 3px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 18px; box-sizing: border-box; }
     
-    input[type="text"] { 
-      width: 100%; padding: 15px; border: 3px solid var(--border); 
-      border-radius: 6px; font-family: inherit; font-size: 18px; box-sizing: border-box; 
-    }
+    .layout-box { background: #fff; border: 4px solid var(--text); border-radius: 12px; padding: 20px; width: 100%; box-sizing: border-box; text-align: center; box-shadow: 0 12px 25px rgba(0,0,0,0.15); flex-shrink: 0; }
     
-    .layout-box {
-      background: #fff; border: 4px solid var(--text); border-radius: 12px;
-      padding: 20px; width: 100%; box-sizing: border-box; text-align: center;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-      flex-shrink: 0;
-    }
+    .scrollable-layout { flex: 1; overflow-y: auto; width: 100%; padding-bottom: 20px; scrollbar-width: none; }
+    .scrollable-layout::-webkit-scrollbar { display: none; }
 
-    .lock-btn {
-      margin-top: 20px;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      color: #fff;
-      font-size: 14px;
-      text-transform: none;
-      text-decoration: underline;
-      padding: 10px;
-    }
+    .lock-btn { margin-top: 10px; background: transparent; border: none; box-shadow: none; color: #fff; font-size: 14px; text-transform: none; text-decoration: underline; padding: 10px; display: block; width: 100%; }
     .lock-btn:active { transform: none; }
   </style>
 </head>
@@ -300,7 +138,7 @@
 
   <h1>Ide Sticker Prints</h1>
 
-  <!-- Welcome Screen is now the First Screen -->
+  <!-- Welcome Screen -->
   <div id="screen-welcome" class="screen active">
     <div class="layout-box" style="margin-bottom: 25px;">
       <p style="margin: 0; font-weight: 600; font-size: 18px; color: #444; line-height: 1.5;">Please turn on your printer and ensure Bluetooth is enabled before starting.</p>
@@ -311,12 +149,10 @@
     </button>
   </div>
 
-  <!-- Lock Screen appears after connection -->
+  <!-- Lock Screen -->
   <div id="screen-lock" class="screen">
     <div class="layout-box" id="lockBox">
       <h2 style="margin-top: 0; font-size: 24px;">Attendant Unlock</h2>
-
-      <!-- Print Copies Selector -->
       <div style="background: #f4f4f5; border-radius: 8px; padding: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; border: 3px solid var(--border);">
         <span style="font-weight: bold; font-size: 16px;">Copies per session:</span>
         <div style="display: flex; align-items: center; gap: 15px;">
@@ -325,69 +161,75 @@
           <button id="incCopiesBtn" class="stepper-btn primary">+</button>
         </div>
       </div>
-      
       <p style="margin-bottom: 20px; color: #555;">Enter PIN to activate booth</p>
-      
       <div class="pin-display">
-        <div class="pin-dot" id="dot1"></div>
-        <div class="pin-dot" id="dot2"></div>
-        <div class="pin-dot" id="dot3"></div>
-        <div class="pin-dot" id="dot4"></div>
+        <div class="pin-dot" id="dot1"></div> <div class="pin-dot" id="dot2"></div>
+        <div class="pin-dot" id="dot3"></div> <div class="pin-dot" id="dot4"></div>
       </div>
-
       <div class="numpad">
-        <button class="num-btn" onclick="enterPin(1)">1</button>
-        <button class="num-btn" onclick="enterPin(2)">2</button>
-        <button class="num-btn" onclick="enterPin(3)">3</button>
-        <button class="num-btn" onclick="enterPin(4)">4</button>
-        <button class="num-btn" onclick="enterPin(5)">5</button>
-        <button class="num-btn" onclick="enterPin(6)">6</button>
-        <button class="num-btn" onclick="enterPin(7)">7</button>
-        <button class="num-btn" onclick="enterPin(8)">8</button>
-        <button class="num-btn" onclick="enterPin(9)">9</button>
-        <button class="num-btn" style="background:#e4e4e7" onclick="clearPin()">C</button>
-        <button class="num-btn" onclick="enterPin(0)">0</button>
-        <button class="num-btn" style="visibility:hidden"></button>
+        <button class="num-btn" onclick="enterPin(1)">1</button> <button class="num-btn" onclick="enterPin(2)">2</button> <button class="num-btn" onclick="enterPin(3)">3</button>
+        <button class="num-btn" onclick="enterPin(4)">4</button> <button class="num-btn" onclick="enterPin(5)">5</button> <button class="num-btn" onclick="enterPin(6)">6</button>
+        <button class="num-btn" onclick="enterPin(7)">7</button> <button class="num-btn" onclick="enterPin(8)">8</button> <button class="num-btn" onclick="enterPin(9)">9</button>
+        <button class="num-btn" style="background:#e4e4e7" onclick="clearPin()">C</button> <button class="num-btn" onclick="enterPin(0)">0</button> <button class="num-btn" style="visibility:hidden"></button>
       </div>
     </div>
   </div>
 
   <!-- Layout Selection Screen -->
   <div id="screen-layout" class="screen">
-    
-    <div id="lastPhotoContainer" class="hidden layout-box" style="margin-bottom: 15px; padding: 15px;">
-      <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 18px;">Last Print</h3>
-      <div style="border: 3px solid var(--text); width: 120px; margin: 0 auto; border-radius: 6px; overflow: hidden; box-shadow: 0 5px 10px rgba(0,0,0,0.2);">
-        <img id="lastPhotoDisplay" alt="Last printed photo" style="width: 100%; display: block;" />
+    <div class="scrollable-layout">
+      
+      <div id="lastPhotoContainer" class="hidden layout-box" style="margin-bottom: 15px; padding: 15px;">
+        <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 18px;">Last Print</h3>
+        <div style="border: 3px solid var(--text); width: 120px; margin: 0 auto; border-radius: 6px; overflow: hidden; box-shadow: 0 5px 10px rgba(0,0,0,0.2);">
+          <img id="lastPhotoDisplay" alt="Last printed photo" style="width: 100%; display: block;" />
+        </div>
       </div>
-    </div>
 
-    <div class="layout-box" style="margin-bottom: 0;">
-      <h2 style="margin-top: 0; font-size: 24px;">Select Layout</h2>
-      <div class="controls" style="flex-direction: column; gap: 15px; margin-top: 15px;">
-        
-        <button id="layout1Btn" class="layout-btn">
-          <svg viewBox="0 0 50 80" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="46" height="76" rx="4" fill="none" stroke="var(--text)" stroke-width="4" />
-            <rect x="6" y="16" width="38" height="48" fill="var(--text)" />
-          </svg>
-          <span>1 Photo (Classic)</span>
-        </button>
-
-        <button id="layout2Btn" class="layout-btn">
-          <svg viewBox="0 0 50 80" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="46" height="76" rx="4" fill="none" stroke="var(--text)" stroke-width="4" />
-            <rect x="6" y="16" width="38" height="23" fill="var(--text)" />
-            <rect x="6" y="41" width="38" height="23" fill="var(--text)" />
-          </svg>
-          <span>2 Photos (Split)</span>
-        </button>
-
+      <div class="layout-box" style="margin-bottom: 0;">
+        <h2 style="margin-top: 0; margin-bottom: 15px; font-size: 24px;">Select Layout</h2>
+        <div class="controls" style="flex-direction: column; gap: 15px; margin-top: 0;">
+          <button id="layout1Btn" class="layout-btn">
+            <svg viewBox="0 0 50 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="46" height="76" rx="4" fill="none" stroke="var(--text)" stroke-width="4" />
+              <rect x="6" y="16" width="38" height="48" fill="var(--text)" />
+            </svg>
+            <span>1 Photo (Classic)</span>
+          </button>
+          <button id="layout2Btn" class="layout-btn">
+            <svg viewBox="0 0 50 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="46" height="76" rx="4" fill="none" stroke="var(--text)" stroke-width="4" />
+              <rect x="6" y="16" width="38" height="23" fill="var(--text)" />
+              <rect x="6" y="41" width="38" height="23" fill="var(--text)" />
+            </svg>
+            <span>2 Photos (Split)</span>
+          </button>
+        </div>
       </div>
+
+      <!-- Frame Style Selector -->
+      <div class="layout-box" style="margin-top: 15px; padding: 15px;">
+        <h3 style="margin-top: 0; margin-bottom: 15px; font-size: 18px;">Frame Design</h3>
+        <div style="display: flex; gap: 10px;">
+          <button id="frame1Btn" class="frame-style-btn primary" style="padding: 10px; font-size: 14px;">Thin</button>
+          <button id="frame2Btn" class="frame-style-btn" style="padding: 10px; font-size: 14px; background: #fff; color: var(--text);">Thick</button>
+          <button id="frame3Btn" class="frame-style-btn" style="padding: 10px; font-size: 14px; background: #fff; color: var(--text);">Double</button>
+        </div>
+      </div>
+
+      <!-- Background Pattern Selector -->
+      <div class="layout-box" style="margin-top: 15px; padding: 15px;">
+        <h3 style="margin-top: 0; margin-bottom: 15px; font-size: 18px;">Background Pattern</h3>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button id="bg1Btn" class="bg-style-btn primary" style="padding: 10px; font-size: 14px; flex: 1;">Blank</button>
+          <button id="bg2Btn" class="bg-style-btn" style="padding: 10px; font-size: 14px; background: #fff; color: var(--text); flex: 1;">Dots</button>
+          <button id="bg3Btn" class="bg-style-btn" style="padding: 10px; font-size: 14px; background: #fff; color: var(--text); flex: 1;">Grid</button>
+          <button id="bg4Btn" class="bg-style-btn" style="padding: 10px; font-size: 14px; background: #fff; color: var(--text); flex: 1;">Stripes</button>
+        </div>
+      </div>
+
+      <button id="manualLockBtn" class="lock-btn">🔒 Lock Booth</button>
     </div>
-    
-    <!-- Manual Lock Button for Attendant -->
-    <button id="manualLockBtn" class="lock-btn">🔒 Lock Booth</button>
   </div>
 
   <!-- Camera Screen -->
@@ -400,9 +242,10 @@
     </div>
     
     <div class="controls" style="flex-wrap: wrap;">
-      <button id="backBtn" style="flex: 0 0 25%; padding: 15px 5px; font-size: 14px;">⬅️ Back</button>
-      <button id="snapBtn" class="primary" style="flex: 1;">📸 Snap</button>
-      <button id="switchCamBtn" style="flex: 0 0 25%; padding: 15px 5px; font-size: 14px;">🔄 Flip</button>
+      <button id="backBtn" style="flex: 1 1 30%; padding: 15px 5px; font-size: 14px;">⬅️ Back</button>
+      <button id="switchCamBtn" style="flex: 1 1 30%; padding: 15px 5px; font-size: 14px;">🔄 Swap</button>
+      <button id="mirrorCamBtn" style="flex: 1 1 30%; padding: 15px 5px; font-size: 14px;">🪞 Mirror</button>
+      <button id="snapBtn" class="primary" style="flex: 1 1 100%; margin-top: 5px;">📸 Snap</button>
     </div>
   </div>
 
@@ -443,8 +286,11 @@
     }
 
     // --- CONFIGURATION ---
-    const ATTENDANT_PIN = "1234"; // <-- Change your unlock PIN here
-    let printCopies = 2;          // Default print copies
+    const ATTENDANT_PIN = "1234"; 
+    let printCopies = 2;          
+    let currentFrameStyle = 1;
+    let currentBgStyle = 1;
+    let isMirrored = true;
     // ---------------------
 
     const TARGET_WIDTH = 400;
@@ -480,6 +326,7 @@
     const snapBtn = document.getElementById('snapBtn');
     const backBtn = document.getElementById('backBtn');
     const switchCamBtn = document.getElementById('switchCamBtn');
+    const mirrorCamBtn = document.getElementById('mirrorCamBtn');
     const retakeBtn = document.getElementById('retakeBtn');
     const printBtn = document.getElementById('printBtn');
     const captionInput = document.getElementById('captionInput');
@@ -489,10 +336,22 @@
     const lastPhotoDisplay = document.getElementById('lastPhotoDisplay');
     const thankYouModal = document.getElementById('thankYouModal');
 
-    // Print Copies Elements
     const decCopiesBtn = document.getElementById('decCopiesBtn');
     const incCopiesBtn = document.getElementById('incCopiesBtn');
     const copiesDisplay = document.getElementById('copiesDisplay');
+
+    const frameBtns = [
+      document.getElementById('frame1Btn'),
+      document.getElementById('frame2Btn'),
+      document.getElementById('frame3Btn')
+    ];
+
+    const bgBtns = [
+      document.getElementById('bg1Btn'),
+      document.getElementById('bg2Btn'),
+      document.getElementById('bg3Btn'),
+      document.getElementById('bg4Btn')
+    ];
 
     let printCharacteristic = null;
     let finalTsplPayload = null;
@@ -501,391 +360,288 @@
     let cameraStream = null;
     let currentFacingMode = 'user';
 
+    // --- FRAME & BG SELECTION LOGIC ---
+    frameBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        currentFrameStyle = index + 1;
+        frameBtns.forEach(b => { b.classList.remove('primary'); b.style.background = '#fff'; b.style.color = 'var(--text)'; });
+        btn.classList.add('primary'); btn.style.background = 'var(--text)'; btn.style.color = '#fff';
+      });
+    });
+
+    bgBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        currentBgStyle = index + 1;
+        bgBtns.forEach(b => { b.classList.remove('primary'); b.style.background = '#fff'; b.style.color = 'var(--text)'; });
+        btn.classList.add('primary'); btn.style.background = 'var(--text)'; btn.style.color = '#fff';
+      });
+    });
+
+    // --- DRAW BACKGROUND PATTERNS ---
+    function drawBackgroundPattern(ctxTarget, width, height, style) {
+      // Base white fill
+      ctxTarget.fillStyle = "#ffffff";
+      ctxTarget.fillRect(0, 0, width, height);
+      
+      ctxTarget.fillStyle = "#000000";
+      ctxTarget.strokeStyle = "#000000";
+      
+      if (style === 2) { // Polka Dots
+        for (let y = 15; y < height; y += 35) {
+          for (let x = 15; x < width; x += 35) {
+            ctxTarget.beginPath();
+            ctxTarget.arc(x, y, 3, 0, Math.PI * 2);
+            ctxTarget.fill();
+          }
+        }
+      } else if (style === 3) { // Grid
+        ctxTarget.lineWidth = 2;
+        for (let x = 0; x < width; x += 30) {
+          ctxTarget.beginPath(); ctxTarget.moveTo(x, 0); ctxTarget.lineTo(x, height); ctxTarget.stroke();
+        }
+        for (let y = 0; y < height; y += 30) {
+          ctxTarget.beginPath(); ctxTarget.moveTo(0, y); ctxTarget.lineTo(width, y); ctxTarget.stroke();
+        }
+      } else if (style === 4) { // Stripes
+        ctxTarget.lineWidth = 3;
+        for (let d = -height; d < width + height; d += 40) {
+          ctxTarget.beginPath();
+          ctxTarget.moveTo(d, 0);
+          ctxTarget.lineTo(d - height, height);
+          ctxTarget.stroke();
+        }
+      }
+    }
+
     // --- SCREENSAVER LOGIC ---
-    let ssX = 50, ssY = 50;
-    let ssDirX = 2.5, ssDirY = 2.5; 
-    let ssReq;
+    let ssX = 50, ssY = 50, ssDirX = 2.5, ssDirY = 2.5, ssReq;
     const ssColors = ['#FF416C', '#F7B733', '#3b82f6', '#23d5ab', '#e73c7e', '#ffffff'];
 
     function animateScreensaver() {
       if (screenScreensaver.classList.contains('hidden')) return;
-
-      let rect = ssText.getBoundingClientRect();
-      let ww = window.innerWidth;
-      let wh = window.innerHeight;
-
+      let rect = ssText.getBoundingClientRect(); let ww = window.innerWidth; let wh = window.innerHeight;
       let hit = false;
       if (ssX + rect.width >= ww) { ssX = ww - rect.width; ssDirX *= -1; hit = true; }
       if (ssX <= 0) { ssX = 0; ssDirX *= -1; hit = true; }
       if (ssY + rect.height >= wh) { ssY = wh - rect.height; ssDirY *= -1; hit = true; }
       if (ssY <= 0) { ssY = 0; ssDirY *= -1; hit = true; }
-
-      if (hit) {
-        ssText.style.color = ssColors[Math.floor(Math.random() * ssColors.length)];
-      }
-
-      ssX += ssDirX;
-      ssY += ssDirY;
+      if (hit) ssText.style.color = ssColors[Math.floor(Math.random() * ssColors.length)];
+      ssX += ssDirX; ssY += ssDirY;
       ssText.style.transform = `translate(${ssX}px, ${ssY}px)`;
-      
       ssReq = requestAnimationFrame(animateScreensaver);
     }
 
     function showScreensaver() {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-        cameraStream = null;
-      }
-      captionInput.value = '';
-      currentPhotoCount = 0;
-      clearPin();
-      
-      // Hide all normal screens
+      if (cameraStream) { cameraStream.getTracks().forEach(track => track.stop()); cameraStream = null; }
+      captionInput.value = ''; currentPhotoCount = 0; clearPin();
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      
-      // Show Screensaver
       screenScreensaver.classList.remove('hidden');
-      
-      // Random start position
-      ssX = Math.random() * (window.innerWidth - 200) + 50;
-      ssY = Math.random() * (window.innerHeight - 200) + 50;
-      
+      ssX = Math.random() * (window.innerWidth - 200) + 50; ssY = Math.random() * (window.innerHeight - 200) + 50;
       if(ssReq) cancelAnimationFrame(ssReq);
       animateScreensaver();
     }
 
-    // Double Tap to Wake up and show PIN screen
     let lastTap = 0;
     function handleDoubleTap(e) {
-      let currentTime = new Date().getTime();
-      let tapLength = currentTime - lastTap;
+      let currentTime = new Date().getTime(); let tapLength = currentTime - lastTap;
       if (tapLength < 500 && tapLength > 0) {
-        screenScreensaver.classList.add('hidden');
-        cancelAnimationFrame(ssReq);
-        switchScreen(screenLock); 
-        e.preventDefault();
+        screenScreensaver.classList.add('hidden'); cancelAnimationFrame(ssReq); switchScreen(screenLock); e.preventDefault();
       }
       lastTap = currentTime;
     }
-    
     screenScreensaver.addEventListener('touchend', handleDoubleTap);
-    screenScreensaver.addEventListener('dblclick', function(e) {
-      screenScreensaver.classList.add('hidden');
-      cancelAnimationFrame(ssReq);
-      switchScreen(screenLock);
-    });
-    // -------------------------
+    screenScreensaver.addEventListener('dblclick', function(e) { screenScreensaver.classList.add('hidden'); cancelAnimationFrame(ssReq); switchScreen(screenLock); });
 
     // --- COPIES LOGIC ---
     function updateCopiesUI() {
       copiesDisplay.innerText = printCopies;
       printBtn.innerText = `🖨️ Print (x${printCopies})`;
     }
-
-    decCopiesBtn.addEventListener('click', () => {
-      if (printCopies > 1) {
-        printCopies--;
-        updateCopiesUI();
-      }
-    });
-
-    incCopiesBtn.addEventListener('click', () => {
-      if (printCopies < 9) {
-        printCopies++;
-        updateCopiesUI();
-      }
-    });
-    // Initialize UI on load
+    decCopiesBtn.addEventListener('click', () => { if (printCopies > 1) { printCopies--; updateCopiesUI(); }});
+    incCopiesBtn.addEventListener('click', () => { if (printCopies < 9) { printCopies++; updateCopiesUI(); }});
     updateCopiesUI();
-    // --------------------
 
     // --- PIN LOGIC ---
     let currentPin = "";
-    
     function updatePinDots() {
       for (let i = 1; i <= 4; i++) {
         const dot = document.getElementById(`dot${i}`);
-        if (i <= currentPin.length) {
-          dot.classList.add('filled');
-        } else {
-          dot.classList.remove('filled');
-        }
+        if (i <= currentPin.length) dot.classList.add('filled');
+        else dot.classList.remove('filled');
       }
     }
-
     window.enterPin = function(num) {
       if (currentPin.length < 4) {
-        currentPin += num;
-        updatePinDots();
-        
-        if (currentPin.length === 4) {
-          setTimeout(verifyPin, 100);
-        }
+        currentPin += num; updatePinDots();
+        if (currentPin.length === 4) setTimeout(verifyPin, 100);
       }
     };
-
-    window.clearPin = function() {
-      currentPin = "";
-      updatePinDots();
-    };
-
+    window.clearPin = function() { currentPin = ""; updatePinDots(); };
     function verifyPin() {
       if (currentPin === ATTENDANT_PIN) {
-        currentPin = "";
-        updatePinDots();
-        switchScreen(screenLayout);
+        currentPin = ""; updatePinDots(); switchScreen(screenLayout);
       } else {
-        const lockBox = document.getElementById('lockBox');
-        lockBox.classList.add('shake');
-        setTimeout(() => {
-          lockBox.classList.remove('shake');
-          clearPin();
-        }, 400);
+        const lockBox = document.getElementById('lockBox'); lockBox.classList.add('shake');
+        setTimeout(() => { lockBox.classList.remove('shake'); clearPin(); }, 400);
       }
     }
-    // -----------------
 
-    // --- 2 MINUTE INACTIVITY TO SCREENSAVER ---
+    // --- 2 MIN INACTIVITY ---
     let inactivityTimer;
     function lockApp() {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-        cameraStream = null;
-      }
-      captionInput.value = '';
-      currentPhotoCount = 0;
-      clearPin();
-      switchScreen(screenLock);
+      if (cameraStream) { cameraStream.getTracks().forEach(track => track.stop()); cameraStream = null; }
+      captionInput.value = ''; currentPhotoCount = 0; clearPin(); switchScreen(screenLock);
     }
-
     function resetInactivity() {
       clearTimeout(inactivityTimer);
-      // Run inactivity timer if NOT on the welcome screen AND NOT already on screensaver
       if (!screenWelcome.classList.contains('active') && screenScreensaver.classList.contains('hidden')) {
-        inactivityTimer = setTimeout(showScreensaver, 2 * 60 * 1000); // 2 minutes triggers screensaver
+        inactivityTimer = setTimeout(showScreensaver, 2 * 60 * 1000); 
       }
     }
-
     ['click', 'touchstart', 'input'].forEach(evt => document.addEventListener(evt, resetInactivity));
-    
-    // Attendant Manual Lock button still goes to PIN screen
     manualLockBtn.addEventListener('click', lockApp);
-    // ------------------------------------------
 
     function switchScreen(activeScreen) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      activeScreen.classList.add('active');
-      resetInactivity();
+      activeScreen.classList.add('active'); resetInactivity();
     }
 
     connectBtn.addEventListener('click', async () => {
       try {
         connectBtn.innerHTML = '<span class="icon">⏳</span><span>Connecting...</span>';
         const device = await navigator.bluetooth.requestDevice({
-          acceptAllDevices: true,
-          optionalServices: [
-            '000018f0-0000-1000-8000-00805f9b34fb',
-            '49535343-fe7d-4ae5-8fa9-9fafd205e455'
-          ]
+          acceptAllDevices: true, optionalServices: ['000018f0-0000-1000-8000-00805f9b34fb', '49535343-fe7d-4ae5-8fa9-9fafd205e455']
         });
-
-        const server = await device.gatt.connect();
-        const services = await server.getPrimaryServices();
-        
+        const server = await device.gatt.connect(); const services = await server.getPrimaryServices();
         for (const service of services) {
           const characteristics = await service.getCharacteristics();
-          for (const char of characteristics) {
-            if (char.properties.write || char.properties.writeWithoutResponse) {
-              printCharacteristic = char;
-              break;
-            }
-          }
+          for (const char of characteristics) { if (char.properties.write || char.properties.writeWithoutResponse) { printCharacteristic = char; break; } }
           if (printCharacteristic) break;
         }
-
         if (!printCharacteristic) throw new Error("No writable characteristics found.");
-        
-        connectBtn.innerHTML = '<span class="icon">🔗</span><span>Connect<br>Printer</span>';
-        switchScreen(screenLock);
-
+        connectBtn.innerHTML = '<span class="icon">🔗</span><span>Connect<br>Printer</span>'; switchScreen(screenLock);
       } catch (error) {
-        console.error(error);
         alert("Printer Connection failed: " + error.message);
         connectBtn.innerHTML = '<span class="icon">🔗</span><span>Connect<br>Printer</span>';
       }
     });
 
     async function initCamera() {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-      }
+      if (cameraStream) { cameraStream.getTracks().forEach(track => track.stop()); }
       try {
-        cameraStream = await navigator.mediaDevices.getUserMedia({ 
-          video: { facingMode: currentFacingMode, width: { ideal: 720 }, height: { ideal: 720 } } 
-        });
+        cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: currentFacingMode, width: { ideal: 720 }, height: { ideal: 720 } } });
         video.srcObject = cameraStream;
-      } catch(err) {
-        alert("Camera failed to start: " + err.message);
-      }
+        isMirrored = (currentFacingMode === 'user'); updateMirrorUI();
+      } catch(err) { alert("Camera failed to start: " + err.message); }
     }
 
+    function updateMirrorUI() {
+      mirrorCamBtn.style.opacity = isMirrored ? "1" : "0.5";
+      video.style.transform = isMirrored ? "scaleX(-1)" : "scaleX(1)";
+    }
+    mirrorCamBtn.addEventListener('click', () => { isMirrored = !isMirrored; updateMirrorUI(); });
+
     switchCamBtn.addEventListener('click', async () => {
-      currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user';
-      await initCamera();
+      currentFacingMode = currentFacingMode === 'user' ? 'environment' : 'user'; await initCamera();
     });
 
     backBtn.addEventListener('click', () => {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-        cameraStream = null;
-      }
-      currentPhotoCount = 0; 
-      switchScreen(screenLayout);
+      if (cameraStream) { cameraStream.getTracks().forEach(track => track.stop()); cameraStream = null; }
+      currentPhotoCount = 0; switchScreen(screenLayout);
     });
 
     layout1Btn.addEventListener('click', async () => {
-      layoutMode = 1;
-      currentPhotoCount = 0;
-      snapBtn.innerText = "📸 Snap";
-      cameraViewfinder.style.aspectRatio = `${PHOTO_WIDTH} / ${PHOTO_HEIGHT}`;
-      await initCamera();
-      switchScreen(screenCamera);
+      layoutMode = 1; currentPhotoCount = 0; snapBtn.innerText = "📸 Snap"; cameraViewfinder.style.aspectRatio = `${PHOTO_WIDTH} / ${PHOTO_HEIGHT}`;
+      await initCamera(); switchScreen(screenCamera);
     });
 
     layout2Btn.addEventListener('click', async () => {
-      layoutMode = 2;
-      currentPhotoCount = 0;
-      snapBtn.innerText = "📸 Snap 1";
-      const halfHeight = Math.floor((PHOTO_HEIGHT - 6) / 2);
-      cameraViewfinder.style.aspectRatio = `${PHOTO_WIDTH} / ${halfHeight}`;
-      await initCamera();
-      switchScreen(screenCamera);
+      layoutMode = 2; currentPhotoCount = 0; snapBtn.innerText = "📸 Snap 1";
+      const halfHeight = Math.floor((PHOTO_HEIGHT - 6) / 2); cameraViewfinder.style.aspectRatio = `${PHOTO_WIDTH} / ${halfHeight}`;
+      await initCamera(); switchScreen(screenCamera);
     });
 
     snapBtn.addEventListener('click', async () => {
-      snapBtn.disabled = true;
-      backBtn.disabled = true;
-      switchCamBtn.disabled = true;
+      snapBtn.disabled = true; backBtn.disabled = true; switchCamBtn.disabled = true; mirrorCamBtn.disabled = true;
       countdownOverlay.classList.remove('hidden');
 
-      for (let i = 5; i > 0; i--) {
-        countdownOverlay.innerText = i;
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-      
+      for (let i = 5; i > 0; i--) { countdownOverlay.innerText = i; await new Promise(resolve => setTimeout(resolve, 1000)); }
       countdownOverlay.classList.add('hidden');
-      snapBtn.disabled = false;
-      backBtn.disabled = false;
-      switchCamBtn.disabled = false;
+      snapBtn.disabled = false; backBtn.disabled = false; switchCamBtn.disabled = false; mirrorCamBtn.disabled = false;
 
       if (layoutMode === 1 || currentPhotoCount === 0) {
-        offscreenCanvas.width = TARGET_WIDTH;
-        offscreenCanvas.height = TARGET_HEIGHT;
-        canvas.width = TARGET_WIDTH; 
-        canvas.height = TARGET_HEIGHT;
-        offCtx.fillStyle = "#ffffff";
-        offCtx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+        offscreenCanvas.width = TARGET_WIDTH; offscreenCanvas.height = TARGET_HEIGHT;
+        canvas.width = TARGET_WIDTH; canvas.height = TARGET_HEIGHT;
+        
+        // Draw the background pattern 
+        drawBackgroundPattern(offCtx, TARGET_WIDTH, TARGET_HEIGHT, currentBgStyle);
       }
 
       if (layoutMode === 1) {
-        offCtx.save();
-        offCtx.beginPath();
-        offCtx.rect(PHOTO_X, PHOTO_Y, PHOTO_WIDTH, PHOTO_HEIGHT);
-        offCtx.clip();
-
+        offCtx.save(); offCtx.beginPath(); offCtx.rect(PHOTO_X, PHOTO_Y, PHOTO_WIDTH, PHOTO_HEIGHT); offCtx.clip();
         const scale = Math.max(PHOTO_WIDTH / video.videoWidth, PHOTO_HEIGHT / video.videoHeight);
-        const drawWidth = video.videoWidth * scale;
-        const drawHeight = video.videoHeight * scale;
-        const drawX = PHOTO_X + (PHOTO_WIDTH - drawWidth) / 2;
-        const drawY = PHOTO_Y + (PHOTO_HEIGHT - drawHeight) / 2;
+        const drawWidth = video.videoWidth * scale; const drawHeight = video.videoHeight * scale;
+        const drawX = PHOTO_X + (PHOTO_WIDTH - drawWidth) / 2; const drawY = PHOTO_Y + (PHOTO_HEIGHT - drawHeight) / 2;
 
-        if (currentFacingMode === 'user') {
-          offCtx.translate(drawX + drawWidth / 2, drawY + drawHeight / 2);
-          offCtx.scale(-1, 1);
-          offCtx.translate(-(drawX + drawWidth / 2), -(drawY + drawHeight / 2));
-        }
-
-        offCtx.drawImage(video, drawX, drawY, drawWidth, drawHeight);
-        offCtx.restore();
+        if (isMirrored) { offCtx.translate(drawX + drawWidth / 2, drawY + drawHeight / 2); offCtx.scale(-1, 1); offCtx.translate(-(drawX + drawWidth / 2), -(drawY + drawHeight / 2)); }
+        offCtx.drawImage(video, drawX, drawY, drawWidth, drawHeight); offCtx.restore();
 
         applyEditsAndDither();
-        if (cameraStream) cameraStream.getTracks().forEach(t => t.stop());
-        switchScreen(screenEdit);
+        if (cameraStream) cameraStream.getTracks().forEach(t => t.stop()); switchScreen(screenEdit);
 
       } else if (layoutMode === 2) {
-        const halfHeight = Math.floor((PHOTO_HEIGHT - 6) / 2);
-        const currentY = currentPhotoCount === 0 ? PHOTO_Y : (PHOTO_Y + halfHeight + 6);
+        const halfHeight = Math.floor((PHOTO_HEIGHT - 6) / 2); const currentY = currentPhotoCount === 0 ? PHOTO_Y : (PHOTO_Y + halfHeight + 6);
 
-        offCtx.save();
-        offCtx.beginPath();
-        offCtx.rect(PHOTO_X, currentY, PHOTO_WIDTH, halfHeight);
-        offCtx.clip();
-
+        offCtx.save(); offCtx.beginPath(); offCtx.rect(PHOTO_X, currentY, PHOTO_WIDTH, halfHeight); offCtx.clip();
         const scale = Math.max(PHOTO_WIDTH / video.videoWidth, halfHeight / video.videoHeight);
-        const drawWidth = video.videoWidth * scale;
-        const drawHeight = video.videoHeight * scale;
-        const drawX = PHOTO_X + (PHOTO_WIDTH - drawWidth) / 2;
-        const drawY = currentY + (halfHeight - drawHeight) / 2;
+        const drawWidth = video.videoWidth * scale; const drawHeight = video.videoHeight * scale;
+        const drawX = PHOTO_X + (PHOTO_WIDTH - drawWidth) / 2; const drawY = currentY + (halfHeight - drawHeight) / 2;
 
-        if (currentFacingMode === 'user') {
-          offCtx.translate(drawX + drawWidth / 2, drawY + drawHeight / 2);
-          offCtx.scale(-1, 1);
-          offCtx.translate(-(drawX + drawWidth / 2), -(drawY + drawHeight / 2));
-        }
-
-        offCtx.drawImage(video, drawX, drawY, drawWidth, drawHeight);
-        offCtx.restore();
+        if (isMirrored) { offCtx.translate(drawX + drawWidth / 2, drawY + drawHeight / 2); offCtx.scale(-1, 1); offCtx.translate(-(drawX + drawWidth / 2), -(drawY + drawHeight / 2)); }
+        offCtx.drawImage(video, drawX, drawY, drawWidth, drawHeight); offCtx.restore();
 
         currentPhotoCount++;
         
         if (currentPhotoCount === 1) {
           snapBtn.innerText = "📸 Snap 2";
         } else {
-          currentPhotoCount = 0;
-          applyEditsAndDither();
-          if (cameraStream) cameraStream.getTracks().forEach(t => t.stop());
-          switchScreen(screenEdit);
+          currentPhotoCount = 0; applyEditsAndDither();
+          if (cameraStream) cameraStream.getTracks().forEach(t => t.stop()); switchScreen(screenEdit);
         }
       }
     });
 
-    retakeBtn.addEventListener('click', () => {
-      captionInput.value = '';
-      currentPhotoCount = 0;
-      switchScreen(screenLayout);
-    });
-
+    retakeBtn.addEventListener('click', () => { captionInput.value = ''; currentPhotoCount = 0; switchScreen(screenLayout); });
     captionInput.addEventListener('input', applyEditsAndDither);
 
     function applyEditsAndDither() {
       ctx.drawImage(offscreenCanvas, 0, 0);
 
+      // --- APPLY FRAME DESIGN ---
       ctx.strokeStyle = "#000000";
-      ctx.lineWidth = 6;
-      ctx.strokeRect(PHOTO_X - 6, PHOTO_Y - 6, PHOTO_WIDTH + 12, PHOTO_HEIGHT + 12);
-
-      if (layoutMode === 2) {
-        const halfHeight = Math.floor((PHOTO_HEIGHT - 6) / 2);
-        ctx.beginPath();
-        ctx.moveTo(PHOTO_X - 6, PHOTO_Y + halfHeight + 3);
-        ctx.lineTo(PHOTO_X + PHOTO_WIDTH + 6, PHOTO_Y + halfHeight + 3);
-        ctx.stroke();
+      if (currentFrameStyle === 1) { // Thin Classic
+        ctx.lineWidth = 6; ctx.strokeRect(PHOTO_X - 6, PHOTO_Y - 6, PHOTO_WIDTH + 12, PHOTO_HEIGHT + 12);
+        if (layoutMode === 2) { ctx.beginPath(); ctx.moveTo(PHOTO_X - 6, PHOTO_Y + Math.floor((PHOTO_HEIGHT - 6) / 2) + 3); ctx.lineTo(PHOTO_X + PHOTO_WIDTH + 6, PHOTO_Y + Math.floor((PHOTO_HEIGHT - 6) / 2) + 3); ctx.stroke(); }
+      } else if (currentFrameStyle === 2) { // Thick & Bold
+        ctx.lineWidth = 16; ctx.strokeRect(PHOTO_X - 10, PHOTO_Y - 10, PHOTO_WIDTH + 20, PHOTO_HEIGHT + 20);
+        if (layoutMode === 2) { ctx.beginPath(); ctx.moveTo(PHOTO_X - 10, PHOTO_Y + Math.floor((PHOTO_HEIGHT - 6) / 2) + 3); ctx.lineTo(PHOTO_X + PHOTO_WIDTH + 10, PHOTO_Y + Math.floor((PHOTO_HEIGHT - 6) / 2) + 3); ctx.stroke(); }
+      } else if (currentFrameStyle === 3) { // Double Lined
+        ctx.lineWidth = 4; ctx.strokeRect(PHOTO_X - 4, PHOTO_Y - 4, PHOTO_WIDTH + 8, PHOTO_HEIGHT + 8); ctx.strokeRect(PHOTO_X - 12, PHOTO_Y - 12, PHOTO_WIDTH + 24, PHOTO_HEIGHT + 24);
+        if (layoutMode === 2) { ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(PHOTO_X - 12, PHOTO_Y + Math.floor((PHOTO_HEIGHT - 6) / 2) + 3); ctx.lineTo(PHOTO_X + PHOTO_WIDTH + 12, PHOTO_Y + Math.floor((PHOTO_HEIGHT - 6) / 2) + 3); ctx.stroke(); }
       }
-
-      ctx.fillStyle = "#000000";
-      ctx.font = "italic bold 28px Georgia, serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("ide klik", TARGET_WIDTH / 2, TOP_CAPTION_HEIGHT / 2 + 5 + Y_SHIFT);
+      
+      // --- CAPTIONS WITH WHITE STROKE FOR VISIBILITY ---
+      ctx.lineJoin = "round";
+      ctx.font = "italic bold 28px Georgia, serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.lineWidth = 8; ctx.strokeStyle = "#ffffff"; ctx.strokeText("ide klik", TARGET_WIDTH / 2, TOP_CAPTION_HEIGHT / 2 + 5 + Y_SHIFT);
+      ctx.fillStyle = "#000000"; ctx.fillText("ide klik", TARGET_WIDTH / 2, TOP_CAPTION_HEIGHT / 2 + 5 + Y_SHIFT);
 
       const text = captionInput.value.trim();
       if (text) {
-        ctx.fillStyle = "#000000";
         ctx.font = "bold 42px 'Courier New', Courier, monospace";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
         const textY = TARGET_HEIGHT - (BOTTOM_CAPTION_HEIGHT / 2);
-        ctx.fillText(text, TARGET_WIDTH / 2, textY);
+        ctx.lineWidth = 10; ctx.strokeStyle = "#ffffff"; ctx.strokeText(text, TARGET_WIDTH / 2, textY);
+        ctx.fillStyle = "#000000"; ctx.fillText(text, TARGET_WIDTH / 2, textY);
       }
 
       const imgData = ctx.getImageData(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
@@ -897,123 +653,69 @@
         data[i] = data[i+1] = data[i+2] = Math.max(0, Math.min(255, contrastLum));
       }
 
-      const w = TARGET_WIDTH;
-      const h = TARGET_HEIGHT;
-      
+      const w = TARGET_WIDTH; const h = TARGET_HEIGHT;
       for (let y = 0; y < h; y++) {
         for (let x = 0; x < w; x++) {
           const idx = (y * w + x) * 4;
-          const oldPixel = data[idx];
-          const newPixel = oldPixel < 128 ? 0 : 255;
-          
+          const oldPixel = data[idx]; const newPixel = oldPixel < 128 ? 0 : 255;
           data[idx] = data[idx+1] = data[idx+2] = newPixel;
           const err = oldPixel - newPixel;
 
           const distribute = (dx, dy, weight) => {
             if (x + dx >= 0 && x + dx < w && y + dy >= 0 && y + dy < h) {
-              const i = ((y + dy) * w + (x + dx)) * 4;
-              data[i] = Math.max(0, Math.min(255, data[i] + err * weight));
+              const i = ((y + dy) * w + (x + dx)) * 4; data[i] = Math.max(0, Math.min(255, data[i] + err * weight));
             }
           };
-
-          distribute(1, 0, 7/16);
-          distribute(-1, 1, 3/16);
-          distribute(0, 1, 5/16);
-          distribute(1, 1, 1/16);
+          distribute(1, 0, 7/16); distribute(-1, 1, 3/16); distribute(0, 1, 5/16); distribute(1, 1, 1/16);
         }
       }
-
-      ctx.putImageData(imgData, 0, 0);
-      preview.src = canvas.toDataURL('image/png');
+      ctx.putImageData(imgData, 0, 0); preview.src = canvas.toDataURL('image/png');
     }
 
     function generateTSPL(shiftX, shiftY) {
       const imgData = ctx.getImageData(0, 0, TARGET_WIDTH, TARGET_HEIGHT).data;
-      
-      const printWidth = TARGET_HEIGHT;
-      const printHeight = TARGET_WIDTH;
+      const printWidth = TARGET_HEIGHT; const printHeight = TARGET_WIDTH;
       const widthBytes = Math.ceil(printWidth / 8);
       
       const headerStr = `SIZE 80 mm, 50 mm\r\nCLS\r\nBITMAP 0,0,${widthBytes},${printHeight},0,`;
       const footerStr = `\r\nPRINT ${printCopies}\r\n`;
-      
       const headerBytes = new TextEncoder().encode(headerStr);
       const footerBytes = new TextEncoder().encode(footerStr);
       const imageBytes = new Uint8Array(widthBytes * printHeight);
-
       imageBytes.fill(255);
 
       for (let y = 0; y < printHeight; y++) {
         for (let x = 0; x < printWidth; x++) {
-          const srcX = x - shiftX;
-          const srcY = y - shiftY;
-          
+          const srcX = x - shiftX; const srcY = y - shiftY;
           if (srcX >= 0 && srcX < printWidth && srcY >= 0 && srcY < printHeight) {
-            const origX = srcY;
-            const origY = printWidth - 1 - srcX;
-            
+            const origX = srcY; const origY = printWidth - 1 - srcX;
             const pixelIdx = (origY * TARGET_WIDTH + origX) * 4;
-            const isBlack = imgData[pixelIdx] === 0;
-            
-            if (isBlack) {
+            if (imgData[pixelIdx] === 0) {
               const byteIdx = y * widthBytes + Math.floor(x / 8);
-              const bitIdx = 7 - (x % 8);
-              imageBytes[byteIdx] &= ~(1 << bitIdx);
+              const bitIdx = 7 - (x % 8); imageBytes[byteIdx] &= ~(1 << bitIdx);
             }
           }
         }
       }
 
       finalTsplPayload = new Uint8Array(headerBytes.length + imageBytes.length + footerBytes.length);
-      finalTsplPayload.set(headerBytes, 0);
-      finalTsplPayload.set(imageBytes, headerBytes.length);
-      finalTsplPayload.set(footerBytes, headerBytes.length + imageBytes.length);
+      finalTsplPayload.set(headerBytes, 0); finalTsplPayload.set(imageBytes, headerBytes.length); finalTsplPayload.set(footerBytes, headerBytes.length + imageBytes.length);
     }
 
     printBtn.addEventListener('click', async () => {
-      if (!printCharacteristic) {
-        alert("Printer disconnected. Please refresh and reconnect.");
-        return;
-      }
-
+      if (!printCharacteristic) { alert("Printer disconnected. Please refresh and reconnect."); return; }
       generateTSPL(0, 0);
-
       try {
-        printBtn.innerText = "Printing...";
-        printBtn.disabled = true;
-        
-        const CHUNK_SIZE = 128;
+        printBtn.innerText = "Printing..."; printBtn.disabled = true; const CHUNK_SIZE = 128;
         for (let i = 0; i < finalTsplPayload.length; i += CHUNK_SIZE) {
           const chunk = finalTsplPayload.slice(i, i + CHUNK_SIZE);
-          if (printCharacteristic.properties.writeWithoutResponse) {
-            await printCharacteristic.writeValueWithoutResponse(chunk);
-          } else {
-            await printCharacteristic.writeValue(chunk);
-          }
+          if (printCharacteristic.properties.writeWithoutResponse) { await printCharacteristic.writeValueWithoutResponse(chunk); } else { await printCharacteristic.writeValue(chunk); }
           await new Promise(resolve => setTimeout(resolve, 20));
         }
-
-        updateCopiesUI();
-        printBtn.disabled = false;
-
-        lastPhotoDisplay.src = canvas.toDataURL('image/png');
-        lastPhotoContainer.classList.remove('hidden');
-
-        thankYouModal.classList.remove('hidden');
-
-        setTimeout(() => {
-          thankYouModal.classList.add('hidden');
-          captionInput.value = '';
-          currentPhotoCount = 0;
-          switchScreen(screenLayout);
-        }, 3000);
-
-      } catch (error) {
-        console.error(error);
-        updateCopiesUI();
-        printBtn.disabled = false;
-        alert("Printing failed: " + error.message);
-      }
+        updateCopiesUI(); printBtn.disabled = false; lastPhotoDisplay.src = canvas.toDataURL('image/png');
+        lastPhotoContainer.classList.remove('hidden'); thankYouModal.classList.remove('hidden');
+        setTimeout(() => { thankYouModal.classList.add('hidden'); captionInput.value = ''; currentPhotoCount = 0; switchScreen(screenLayout); }, 3000);
+      } catch (error) { console.error(error); updateCopiesUI(); printBtn.disabled = false; alert("Printing failed: " + error.message); }
     });
   </script>
 </body>
